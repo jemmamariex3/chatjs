@@ -1,0 +1,27 @@
+{
+  "name": "chatjs",
+  "version": "1.0.0",
+  "description": "COMP429 Programming Assignment 1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jemmamariex3/chatjs.git"
+  },
+  "keywords": [
+    "socket.io",
+    "simple",
+    "chat",
+    "javascript",
+    "express",
+    "node"
+  ],
+  "author": "Jemma Tiongson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jemmamariex3/chatjs/issues"
+  },
+  "homepage": "https://github.com/jemmamariex3/chatjs#readme"
+}
