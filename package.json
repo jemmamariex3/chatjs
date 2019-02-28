@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/jemmamariex3/chatjs/issues"
   },
-  "homepage": "https://github.com/jemmamariex3/chatjs#readme"
+  "homepage": "https://github.com/jemmamariex3/chatjs#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
