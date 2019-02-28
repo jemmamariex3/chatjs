@@ -3,54 +3,91 @@ var io = require('socket.io')(app);
 var fs = require('fs');
 const readline = require('readline');
 
-const question = "Select one of the possible options.\nCommand Manual (select options 1-8):\n1) Help\n2) MyIP\n3) MyPort\n4) Connect IP PORT\n5) List IP Peers\n6) Terminate IP\n7) Send IP Message\n8) Exit"
+let clientIP;
+console.log("your ip:" +clientIP);
+io.on("connection", function(socket){
+    socket.on("send message", function(sent_msg, callback){
+        sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
+
+        io.sockets.emit("update messages", sent_msg);
+        callback();
+    });
+    clientIP = socket.handshake.address;
+});
 
 var port = process.env.PORT || 3000;
 app.listen(port);
 console.log("App running on port " +port);
 
-//Prompts user when the app starts running
-// rl = readline.createInterface(process.stdin, process.stdout),
-// rl.on('line', function(line) {
-//     switch(line.trim()) {
-//         case 1:
-//             console.log('world!');
-//             break;
-//         case 8:
-//             rl.close();
-//             break;
-//         default:
-//             console.log('Say what? I might have heard `' + line.trim() + '`');
-//             break;
-//     }
-//     //shows '>' to let user know they can provide an input
-//     rl.prompt();
-// }).on('close', function() {
-//     console.log('Have a great day!');
-//     process.exit(0);
-// });
-// console.log("\n"+question);
-// rl.prompt();
+const question = "Select one of the possible options.\nCommand Manual (select options 1-8):\n1) Help\n2) MyIP\n3) MyPort\n4) Connect IP PORT\n5) List IP Peers\n6) Terminate IP\n7) Send IP Message\n8) Exit"
+const help ="\nHELP COMMAND\n"+"1) Help - Display information about the available user interface options or command manual."+"\n"+"2) MyIP - Display the IP address of this process."
+    +"\n\tNote: The IP should not be your “Local” address (127.0.0.1). It should be the actual IP of the computer."+"\n"+"3) MyPort - Display the port on which this process is listening for incoming connections." +
+    "4) connect IP Port : This command establishes a new TCP connection to the specified IP address of the computer at the specified port no. Any attempt to connect to an invalid IP should be rejected and suitable error message should be displayed. " +"\n"+
+    "Success or failure in connections between two peers should be indicated by both the peers using suitable messages. Self-connections and duplicate connections should be flagged with suitable error messages."+"\n"+"5) List IP Peers - Display a numbered list of all the connections " +
+    "this process is part of. This numbered list will include connections initiated by this process and connections initiated by other processes. The output should display the IP address and the listening port of all the peers the process is connected to." +"\n"+
+    "6) Terminate IP - This command will terminate the connection listed under the specified number when LIST is used to display all connections. " +
+    "\n\tE.g., terminate 2. In this example, the connection with 192.168.21.21 should end. An error message is displayed if a valid connection does not exist as number 2. If a remote machine terminates one of your connections, you should also display a message." +"\n"+
+    "7) Send IP Message - (For example, send 3 Oh! This project is a piece of cake). \nThis will send the message to the host on the connection that is designated by the number 3 when command “list” is used. The message to be sent can be up-to 100 characters long, including blank spaces.\n" +
+    "On successfully executing the command, the sender should display “Message sent to IP” on the screen.On receiving any message from the peer, the receiver should display the received message along with the sender information." +
+    "\n\t(Eg. If a process on 192.168.21.20 sends a message to a process on 192.168.21.21 then the output on 192.168.21.21 when receiving a message should display as shown:" +
+    "\n\tMessage received from 192.168.21.20" +
+    "\n\tSender’s Port: < The port no. of the sender >" +
+    "\n\tSender’s Port: < The port no. of the sender >"+"\n"+"8) Exit - Exits out of the Chat Application."
 
-rl = readline.createInterface(process.stdin, process.stdout),
-rl.on('line', function(line) {
+r = readline.createInterface(process.stdin, process.stdout),
+r.on('line', function(line) {
     switch(line) {
         case '1':
-            console.log('world!');
+            console.log(help);
+            console.log("\n___________________________________________\n");
+            console.log("\n"+question);
+            break;
+        case '2':
+            console.log(clientIP);
+            console.log("\n___________________________________________\n");
+            console.log("\n"+question);
+            break;
+        case '3':
+            console.log('3');
+            console.log("\n___________________________________________\n");
+            console.log("\n"+question);
+            break;
+        case '4':
+            console.log('4');
+            console.log("\n___________________________________________\n");
+            console.log("\n"+question);
+            break;
+        case '5':
+            console.log('5');
+            console.log("\n___________________________________________\n");
+            console.log("\n"+question);
+            break;
+        case '6':
+            console.log('6');
+            console.log("\n___________________________________________\n");
+            console.log("\n"+question);
+            break;
+        case '7':
+            console.log('7');
+            console.log("\n___________________________________________\n");
+            console.log("\n"+question);
+            break;
+        case '8':
+            r.close();
             break;
         default:
-            console.log('Say what? I might have heard ' + line);
+            console.log('\nInvalid selection.' +"\n"+ question);
             break;
     }
-    rl.prompt();
+    r.prompt();
 }).on('close', function() {
-    console.log('Have a great day!');
+    console.log('Exiting Application');
     process.exit(0);
 });
-console.log("\n"+question);
-rl.prompt();
 
-//TODO: Help: sample
+console.log("\n"+question);
+r.prompt();
+
 //TODO: myip: figure out how to output laptop IP address
 //TODO: nyport: display port on which this process is listening for incoming connections.
 //TODO: connect IP PORT: establishes a new TCP connection to the specified <destination> at the specified < port no>
@@ -83,14 +120,6 @@ function response(req, res) {
     );
 }
 
-io.on("connection", function(socket){
-    socket.on("send message", function(sent_msg, callback){
-        sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
-
-        io.sockets.emit("update messages", sent_msg);
-        callback();
-    });
-});
 
 function getCurrentDate(){
     var currentDate = new Date();
