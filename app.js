@@ -3,8 +3,6 @@ var io = require('socket.io')(app);
 var fs = require('fs');
 const readline = require('readline');
 
-let clientIP;
-console.log("your ip:" +clientIP);
 io.on("connection", function(socket){
     socket.on("send message", function(sent_msg, callback){
         sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
@@ -12,12 +10,11 @@ io.on("connection", function(socket){
         io.sockets.emit("update messages", sent_msg);
         callback();
     });
-    clientIP = socket.handshake.address;
 });
 
 var port = process.env.PORT || 3000;
 app.listen(port);
-console.log("App running on port " +port);
+console.log("App running on port: " +port);
 
 const question = "Select one of the possible options.\nCommand Manual (select options 1-8):\n1) Help\n2) MyIP\n3) MyPort\n4) Connect IP PORT\n5) List IP Peers\n6) Terminate IP\n7) Send IP Message\n8) Exit"
 const help ="\nHELP COMMAND\n"+"1) Help - Display information about the available user interface options or command manual."+"\n"+"2) MyIP - Display the IP address of this process."
@@ -43,7 +40,7 @@ r.on('line', function(line) {
             console.log("\n"+question);
             break;
         case '2':
-            console.log(clientIP);
+            console.log('2');
             console.log("\n___________________________________________\n");
             console.log("\n"+question);
             break;
@@ -89,7 +86,7 @@ console.log("\n"+question);
 r.prompt();
 
 //TODO: myip: figure out how to output laptop IP address
-//TODO: nyport: display port on which this process is listening for incoming connections.
+//TODO: myport: display port on which this process is listening for incoming connections.
 //TODO: connect IP PORT: establishes a new TCP connection to the specified <destination> at the specified < port no>
 //TODO: list: The output should display the IP address and the listening port of all the peers the process is connected to.
 //TODO: terminate <connection id.>: This command will terminate the connection listed under the specified number when LIST is used to display all connections
@@ -97,7 +94,6 @@ r.prompt();
     //The message to be sent can be up-to 100 characters long, including blank spaces.
     // On successfully executing the command, the sender should display “Message sent to <connection id>” on the screen.
     // On receiving any message from the peer, the receiver should display the received message along with the sender information.
-//TODO: exit: Close all connections and terminate this process. The other peers should also update their connection list by removing the peer that exits.
 
 function response(req, res) {
     var file = "";
