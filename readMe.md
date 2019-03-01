@@ -47,7 +47,7 @@ PORT=<enter-port-num> node app.js
 #### Edward
 
 
-##Sources
+## Sources
 The following resources were used to help build and research for this project:
 
 [Node Chat Tutorial](https://itnext.io/creating-a-chat-with-node-js-from-the-scratch-707896d64593)
