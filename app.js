@@ -1,15 +1,12 @@
-var app = require('http').createServer(response);
+var http = require('http');
+var app = http.createServer(response);
 var io = require('socket.io')(app);
 var fs = require('fs');
+var network = require('network');
+
 const readline = require('readline');
 
-let localIP;
-// let clientIP;
 io.on("connection", function(socket){
-    // localIP= socket.request.headers['x-forwarded-for'] || socket.handshake.address;
-    localIP = socket.handshake.address;
-    // clientIP = socket.handshake.remoteAddress;
-    // console.log(socket.handshake.headers)
     socket.on("send message", function(sent_msg, callback){
         sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
 
@@ -18,7 +15,14 @@ io.on("connection", function(socket){
     });
 });
 
+//network is a library that helps retrieve public IP
+let clientIP;
+network.get_private_ip(function(err, ip) {
+    clientIP = err || ip; // err may be 'No active network interface found'.
+})
 
+//user can set IP address using PORT=.
+//If no IP is indicated, the program will default to 3000
 var port = process.env.PORT || 3000;
 app.listen(port, '0.0.0.0');
 console.log("Open browser at localhost:" +port);
@@ -38,21 +42,22 @@ const help ="\nHELP COMMAND\n"+"1) Help - Display information about the availabl
     "\n\tSender’s Port: < The port no. of the sender >" +
     "\n\tSender’s Port: < The port no. of the sender >"+"\n"+"8) Exit - Exits out of the Chat Application."
 
+//If use selects any value 1-8, case will determine what function or variable to call
 r = readline.createInterface(process.stdin, process.stdout),
 r.on('line', function(line) {
     switch(line) {
         case '1':
-            console.log(help);
+            console.log("\n"+help);
             console.log("\n___________________________________________\n");
             console.log("\n"+question);
             break;
         case '2':
-            console.log("Local IP Address: " +localIP);
+            console.log("\nClient IP Address: " +clientIP);
             console.log("\n___________________________________________\n");
             console.log("\n"+question);
             break;
         case '3':
-            console.log('3');
+            console.log('\nListening for connection on port: '+port);
             console.log("\n___________________________________________\n");
             console.log("\n"+question);
             break;
@@ -92,8 +97,6 @@ r.on('line', function(line) {
 console.log("\n"+question);
 r.prompt();
 
-//TODO: myip: figure out how to output laptop IP address
-//TODO: myport: display port on which this process is listening for incoming connections.
 //TODO: connect IP PORT: establishes a new TCP connection to the specified <destination> at the specified < port no>
 //TODO: list: The output should display the IP address and the listening port of all the peers the process is connected to.
 //TODO: terminate <connection id.>: This command will terminate the connection listed under the specified number when LIST is used to display all connections
