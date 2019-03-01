@@ -3,7 +3,13 @@ var io = require('socket.io')(app);
 var fs = require('fs');
 const readline = require('readline');
 
+let localIP;
+// let clientIP;
 io.on("connection", function(socket){
+    // localIP= socket.request.headers['x-forwarded-for'] || socket.handshake.address;
+    localIP = socket.handshake.address;
+    // clientIP = socket.handshake.remoteAddress;
+    // console.log(socket.handshake.headers)
     socket.on("send message", function(sent_msg, callback){
         sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
 
@@ -12,9 +18,10 @@ io.on("connection", function(socket){
     });
 });
 
+
 var port = process.env.PORT || 3000;
-app.listen(port);
-console.log("App running on port: " +port);
+app.listen(port, '0.0.0.0');
+console.log("Open browser at localhost:" +port);
 
 const question = "Select one of the possible options.\nCommand Manual (select options 1-8):\n1) Help\n2) MyIP\n3) MyPort\n4) Connect IP PORT\n5) List IP Peers\n6) Terminate IP\n7) Send IP Message\n8) Exit"
 const help ="\nHELP COMMAND\n"+"1) Help - Display information about the available user interface options or command manual."+"\n"+"2) MyIP - Display the IP address of this process."
@@ -40,7 +47,7 @@ r.on('line', function(line) {
             console.log("\n"+question);
             break;
         case '2':
-            console.log('2');
+            console.log("Local IP Address: " +localIP);
             console.log("\n___________________________________________\n");
             console.log("\n"+question);
             break;
