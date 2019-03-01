@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8627e49e-0e70-430e-94f9-1c86293b282d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/readMe.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/blob/.idea/blob.iml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/blob/.idea/blob.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/blob/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/blob/.idea/markdown-navigator.xml" afterDir="false" />
@@ -34,6 +33,7 @@
       <change beforePath="$PROJECT_DIR$/node_modules/parseuri/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/parseuri/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/parseuri/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/parseuri/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/parseuri/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/parseuri/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/readMe.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -76,16 +76,16 @@
         <counts>
           <entry key="html" value="3" />
           <entry key="js" value="4136" />
-          <entry key="md" value="1064" />
-          <entry key="txt" value="243" />
+          <entry key="md" value="1066" />
+          <entry key="txt" value="269" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="3" />
           <entry key="JavaScript" value="4136" />
-          <entry key="Markdown" value="1064" />
-          <entry key="PLAIN_TEXT" value="243" />
+          <entry key="Markdown" value="1066" />
+          <entry key="PLAIN_TEXT" value="269" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -113,8 +113,8 @@
         <entry file="file://$PROJECT_DIR$/readMe.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="207">
-                <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+              <first_editor relative-caret-position="495">
+                <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
               </first_editor>
               <second_editor />
             </state>
@@ -284,11 +284,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551399139959</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added Read Me to master">
+      <created>1551408750622</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1551408750622</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26697000" />
+    <option name="totallyTimeSpent" value="26741000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="144" y="23" width="1136" height="777" extended-state="0" />
@@ -324,7 +331,8 @@
     <MESSAGE value="pushing changes to interface menu - trying to retrieve IP address using socket.io" />
     <MESSAGE value="pushing changes to master - still working on retrieving IP address" />
     <MESSAGE value="started retrieving ip address but not the computer ip address" />
-    <option name="LAST_COMMIT_MESSAGE" value="started retrieving ip address but not the computer ip address" />
+    <MESSAGE value="added Read Me to master" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Read Me to master" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/css/style.css">
@@ -358,8 +366,8 @@
     <entry file="file://$PROJECT_DIR$/readMe.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="207">
-            <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <first_editor relative-caret-position="495">
+            <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
           </first_editor>
           <second_editor />
         </state>

@@ -31,7 +31,7 @@ Users are able to set port values of their choice.
 Run the following command to get started
 
 ``` bash
-PORT=<enter-port-num node> app.js
+PORT=<enter-port-num> node app.js
 ```
 
 ## Contributions
