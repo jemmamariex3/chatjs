@@ -1,32 +1,13 @@
+//Global Variables
 var http = require('http');
 var app = http.createServer(response);
 var io = require('socket.io')(app);
 var fs = require('fs');
 var network = require('network');
 
-const readline = require('readline');
-
-io.on("connection", function(socket){
-    socket.on("send message", function(sent_msg, callback){
-        sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
-
-        io.sockets.emit("update messages", sent_msg);
-        callback();
-    });
-});
-
-//network is a library that helps retrieve public IP
 let clientIP;
-network.get_private_ip(function(err, ip) {
-    clientIP = err || ip; // err may be 'No active network interface found'.
-})
 
-//user can set IP address using PORT=.
-//If no IP is indicated, the program will default to 3000
-var port = process.env.PORT || 3000;
-app.listen(port, '0.0.0.0');
-console.log("Open browser at localhost:" +port);
-
+const readline = require('readline');
 const question = "Select one of the possible options.\nCommand Manual (select options 1-8):\n1) Help\n2) MyIP\n3) MyPort\n4) Connect IP PORT\n5) List IP Peers\n6) Terminate IP\n7) Send IP Message\n8) Exit"
 const help ="\nHELP COMMAND\n"+"1) Help - Display information about the available user interface options or command manual."+"\n"+"2) MyIP - Display the IP address of this process."
     +"\n\tNote: The IP should not be your “Local” address (127.0.0.1). It should be the actual IP of the computer."+"\n"+"3) MyPort - Display the port on which this process is listening for incoming connections." +
@@ -42,7 +23,36 @@ const help ="\nHELP COMMAND\n"+"1) Help - Display information about the availabl
     "\n\tSender’s Port: < The port no. of the sender >" +
     "\n\tSender’s Port: < The port no. of the sender >"+"\n"+"8) Exit - Exits out of the Chat Application."
 
-//If use selects any value 1-8, case will determine what function or variable to call
+//TODO: connect IP PORT: establishes a new TCP connection to the specified <destination> at the specified < port no>
+//TODO: list: The output should display the IP address and the listening port of all the peers the process is connected to.
+//TODO: terminate <connection id.>: This command will terminate the connection listed under the specified number when LIST is used to display all connections
+//TODO: send <connection id.> <message>: This will send the message to the host on the connection that is designated by the number 3 when command “list” is used.
+//The message to be sent can be up-to 100 characters long, including blank spaces.
+// On successfully executing the command, the sender should display “Message sent to <connection id>” on the screen.
+// On receiving any message from the peer, the receiver should display the received message along with the sender information.
+
+//Socket connection
+io.on("connection", function(socket){
+    socket.on("send message", function(sent_msg, callback){
+        sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
+
+        io.sockets.emit("update messages", sent_msg);
+        callback();
+    });
+});
+
+//network is a library that helps retrieve public IP
+network.get_private_ip(function(err, ip) {
+    clientIP = err || ip; // err may be 'No active network interface found'.
+})
+
+//user can set IP address using PORT=.
+//If no IP is indicated, the program will default to 3000
+var port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0');
+console.log("Open browser at localhost:" +port);
+
+//If user inputs any value 1-8, case will determine what function or variable to call
 r = readline.createInterface(process.stdin, process.stdout),
 r.on('line', function(line) {
     switch(line) {
@@ -97,14 +107,6 @@ r.on('line', function(line) {
 console.log("\n"+question);
 r.prompt();
 
-//TODO: connect IP PORT: establishes a new TCP connection to the specified <destination> at the specified < port no>
-//TODO: list: The output should display the IP address and the listening port of all the peers the process is connected to.
-//TODO: terminate <connection id.>: This command will terminate the connection listed under the specified number when LIST is used to display all connections
-//TODO: send <connection id.> <message>: This will send the message to the host on the connection that is designated by the number 3 when command “list” is used.
-    //The message to be sent can be up-to 100 characters long, including blank spaces.
-    // On successfully executing the command, the sender should display “Message sent to <connection id>” on the screen.
-    // On receiving any message from the peer, the receiver should display the received message along with the sender information.
-
 function response(req, res) {
     var file = "";
     if(req.url == "/"){
@@ -125,7 +127,6 @@ function response(req, res) {
         }
     );
 }
-
 
 function getCurrentDate(){
     var currentDate = new Date();
