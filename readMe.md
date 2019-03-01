@@ -43,6 +43,7 @@ PORT=<enter-port-num> node chat.js
 - Researched and implemented readLine for user input and menu prompts
 - Implemented the menu interface for terminal
 - Worked on commands #1-3, and 8
+- Wrote up the Read Me file
 
 #### Edward
 
