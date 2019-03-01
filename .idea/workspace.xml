@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8627e49e-0e70-430e-94f9-1c86293b282d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/readMe.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/blob/.idea/blob.iml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/blob/.idea/blob.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/blob/.idea/markdown-navigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/blob/.idea/markdown-navigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/blob/.idea/markdown-navigator/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/blob/.idea/markdown-navigator/profiles_settings.xml" afterDir="false" />
@@ -34,8 +34,6 @@
       <change beforePath="$PROJECT_DIR$/node_modules/parseuri/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/parseuri/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/parseuri/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/parseuri/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/parseuri/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/parseuri/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -62,6 +60,7 @@
           <entry key="html" value="1" />
           <entry key="js" value="1" />
           <entry key="json" value="4" />
+          <entry key="md" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -70,12 +69,14 @@
           <entry key="HTML" value="1" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="1" />
+          <entry key="Markdown" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="3" />
           <entry key="js" value="4136" />
+          <entry key="md" value="1064" />
           <entry key="txt" value="243" />
         </counts>
       </usages-collector>
@@ -83,6 +84,7 @@
         <counts>
           <entry key="HTML" value="3" />
           <entry key="JavaScript" value="4136" />
+          <entry key="Markdown" value="1064" />
           <entry key="PLAIN_TEXT" value="243" />
         </counts>
       </usages-collector>
@@ -98,11 +100,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+            <state relative-caret-position="300">
+              <caret line="20" column="117" lean-forward="true" selection-start-line="20" selection-start-column="117" selection-end-line="20" selection-end-column="117" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readMe.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="207">
+                <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -110,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="90" selection-start-line="14" selection-start-column="90" selection-end-line="14" selection-end-column="90" />
+            <state relative-caret-position="300">
+              <caret line="20" column="76" selection-start-line="20" selection-start-column="76" selection-end-line="20" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -157,6 +180,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/readMe.md" />
       </list>
     </option>
   </component>
@@ -175,9 +199,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="63" />
+    <option name="x" value="144" />
     <option name="y" value="23" />
-    <option name="width" value="1212" />
+    <option name="width" value="1136" />
     <option name="height" value="777" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -264,13 +288,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24238000" />
+    <option name="totallyTimeSpent" value="26697000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="63" y="23" width="1212" height="777" extended-state="0" />
+    <frame x="144" y="23" width="1136" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49927008" visible="true" weight="0.20822838" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49927008" weight="0.20822838" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5007299" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -282,7 +306,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49874055" visible="true" weight="0.41167882" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49874055" weight="0.41167882" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50125945" side_tool="true" weight="0.329927" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -312,22 +336,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="90" selection-start-line="14" selection-start-column="90" selection-end-line="14" selection-end-column="90" />
+        <state relative-caret-position="300">
+          <caret line="20" column="76" selection-start-line="20" selection-start-column="76" selection-end-line="20" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="330">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+        <state relative-caret-position="300">
+          <caret line="20" column="117" lean-forward="true" selection-start-line="20" selection-start-column="117" selection-end-line="20" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readMe.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="207">
+            <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
