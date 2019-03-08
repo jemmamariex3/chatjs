@@ -5,6 +5,10 @@ var io = require('socket.io')(app);
 var fs = require('fs');
 var network = require('network');
 
+// Create a clientsSockets array to hold each new client socket
+var clientSockets = [];
+var clientCount = 0;
+
 let clientIP;
 
 const readline = require('readline');
@@ -24,18 +28,28 @@ const help ="\nHELP COMMAND\n"+"1) Help - Display information about the availabl
     "\n\tSender’s Port: < The port no. of the sender >"+"\n"+"8) Exit - Exits out of the Chat Application."
 
 //TODO: connect IP PORT: establishes a new TCP connection to the specified <destination> at the specified < port no>
-//TODO: list: The output should display the IP address and the listening port of all the peers the process is connected to.
 //TODO: terminate <connection id.>: This command will terminate the connection listed under the specified number when LIST is used to display all connections
-//TODO: send <connection id.> <message>: This will send the message to the host on the connection that is designated by the number 3 when command “list” is used.
 //The message to be sent can be up-to 100 characters long, including blank spaces.
 // On successfully executing the command, the sender should display “Message sent to <connection id>” on the screen.
 // On receiving any message from the peer, the receiver should display the received message along with the sender information.
 
+
 //Socket connection
 io.on("connection", function(socket){
+
+    // Check if this ip address is already connected
+    var close = isIPConnected(socket);
+    // console.log(close);
+    if (close) { // if true, disconnect new socket connection
+        socket.disconnect(close);
+    } else { // otherwise, add new socket to clientSockets array
+        addNewClient(socket);
+    }
+
+
+
     socket.on("send message", function(sent_msg, callback){
         sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
-
         io.sockets.emit("update messages", sent_msg);
         callback();
     });
@@ -52,8 +66,11 @@ var port = process.env.PORT || 3000;
 app.listen(port, '0.0.0.0');
 console.log("Open browser at localhost:" +port);
 
+
+
+
 //If user inputs any value 1-8, case will determine what function or variable to call
-r = readline.createInterface(process.stdin, process.stdout),
+r = readline.createInterface(process.stdin, process.stdout);
 r.on('line', function(line) {
     switch(line) {
         case '1':
@@ -74,12 +91,13 @@ r.on('line', function(line) {
         case '4':
             console.log('4');
             console.log("\n___________________________________________\n");
-            console.log("\n"+question);
+            newConnection();
             break;
         case '5':
-            console.log('5');
-            console.log("\n___________________________________________\n");
-            console.log("\n"+question);
+            // console.log('5');
+            // console.log("\n___________________________________________\n");
+            displayConnections()
+
             break;
         case '6':
             console.log('6');
@@ -87,9 +105,10 @@ r.on('line', function(line) {
             console.log("\n"+question);
             break;
         case '7':
-            console.log('7');
-            console.log("\n___________________________________________\n");
-            console.log("\n"+question);
+            // console.log('7');
+            // // console.log("\n___________________________________________\n");
+            privateMessage();
+            // console.log('\n');
             break;
         case '8':
             r.close();
@@ -139,3 +158,133 @@ function getCurrentDate(){
 
     return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
 }
+
+
+// 4 Very close!!!
+function newConnection() {
+
+    console.log("in makeConnection function");
+    // create object to hold IP and Port values
+    var ConnectObj = {
+        ip: '',
+        port: ''
+    };
+
+    r.question("connect ", function(data) {
+        str = data;
+        array = str.split(" ");
+
+        ConnectObj.ip = array[0];
+        ConnectObj.port = array[1];
+        console.log("ConnectObj.ip " + ConnectObj.ip);
+        console.log("ConnectObj.port " + ConnectObj.port);
+        // This works, now make this into an event!
+        var port = ConnectObj.port || 3000;
+
+        var ip = ConnectObj.ip || '172.28.19.229';
+
+        // Create a new TCP connection -> need to know another laptops IP -> use lians
+
+        return;
+
+
+    });
+
+    return;
+
+
+    // console.log("ConnectObj.port: " + ConnectObj.port);
+    // console.log("ConnectObj.ip: " + ConnectObj.ip);
+
+};
+
+function addNewClient(socket) {
+    if (clientSockets.length < 1) {
+        clientSockets.push(socket);
+        clientCount++;
+    } else {
+        // Make sure not to store multiple clients with the same id
+        var isMatch = false;
+        for(i = 0; i < clientSockets.length; i++) {
+            if (socket.id == clientSockets[i].id) {
+                isMatch = true;
+                // console.log("Socket already exists");
+            }
+        }
+        if (!isMatch) {
+            clientSockets.push(socket);
+            clientCount++;
+        }
+    }
+
+    // console.log("Client count: " + clientCount + "----------------------------");
+    // for (i = 0; i < clientSockets.length; i++) {
+    //     console.log(clientSockets[i].id);
+    // }
+    // console.log(clientSockets);
+}
+
+function isIPConnected(socket) {
+    // Check if this sockets ip address is already exists in the clienSockets array
+    for (i = 0; i < clientSockets.length; i++) {
+        if (socket.handshake.address == clientSockets[i].handshake.address) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// 5 contribution: Display a numbered list of all the connections
+function displayConnections() {
+
+    // // Get IP and Port of new connection:
+    // var ip = socket.handshake.address;
+    // console.log(ip);
+    // Make sure not to get local ip from local comp client
+    // if (ip == '127.0.0.1') {
+    //     Obj.ip = clientIP;
+    // } else {
+    //     Obj.ip = ip;
+    // }
+    // var str = socket.handshake.headers.host;
+    // var port = str.split(":")[1];
+    // console.log(port);
+    // Obj.port = port;
+    console.log("id:\tIP Address\t\t\t\tPort No.");
+    for (i = 0; i < clientSockets.length; i++) {
+        var ip = clientSockets[i].handshake.address;
+
+        if (ip == '127.0.0.1') {
+            ip = clientIP;
+        }
+
+        var str = clientSockets[i].handshake.headers.host;
+        var port = str.split(":")[1];
+        console.log((i + 1) + "\t" + ip + "\t\t\t" + port);
+    }
+
+}
+
+// #8 Send designated message to
+function privateMessage() {
+    var id = "";
+    var msg = "";
+    var fullmsg = "[Terminal] ";
+    // This has been sending data to the console on the browser this whole time!
+    // This works!!
+    // clientSockets[0].emit("test message", "[Terminal]: Hey from privateMessage!");
+    r.question("Enter user id: ", function(data) {
+        id = data;
+        r. question("Enter message: ", function(data) {
+            msg = data;
+            // Checks to see if message is over 100 characters.
+            while (msg.length > 100) {
+                r. question("Enter message: ", function(data) {
+                    msg = data;
+                });
+            };
+            fullmsg += msg;
+            clientSockets[id].emit("test message", fullmsg);
+        });
+    });
+};
