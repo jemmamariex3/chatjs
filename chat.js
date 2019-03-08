@@ -2,6 +2,7 @@
 var http = require('http');
 var app = http.createServer(response);
 var io = require('socket.io')(app);
+var count = 0;
 var fs = require('fs');
 var network = require('network');
 
@@ -31,8 +32,12 @@ const help ="\nHELP COMMAND\n"+"1) Help - Display information about the availabl
 // On successfully executing the command, the sender should display “Message sent to <connection id>” on the screen.
 // On receiving any message from the peer, the receiver should display the received message along with the sender information.
 
+
 //Socket connection
 io.on("connection", function(socket){
+    var address = socket.handshake.address;
+    count++;
+    console.log(`\n ${count} user(s) connected`);
     socket.on("send message", function(sent_msg, callback){
         sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
 
@@ -52,8 +57,12 @@ var port = process.env.PORT || 3000;
 app.listen(port, '0.0.0.0');
 console.log("Open browser at localhost:" +port);
 
+
+
+
+
 //If user inputs any value 1-8, case will determine what function or variable to call
-r = readline.createInterface(process.stdin, process.stdout),
+r = readline.createInterface(process.stdin, process.stdout);
 r.on('line', function(line) {
     switch(line) {
         case '1':
@@ -74,11 +83,12 @@ r.on('line', function(line) {
         case '4':
             console.log('4');
             console.log("\n___________________________________________\n");
-            console.log("\n"+question);
+            newConnection();
             break;
         case '5':
             console.log('5');
             console.log("\n___________________________________________\n");
+            
             console.log("\n"+question);
             break;
         case '6':
@@ -139,3 +149,42 @@ function getCurrentDate(){
 
     return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
 }
+
+
+// 4 Very close!!!
+function newConnection() {
+    
+    console.log("in makeConnection function");
+    // create object to hold IP and Port values
+    var ConnectObj = {
+        ip: '',
+        port: ''
+    };
+    
+    r.question("connect ", function(data) {
+        str = data;
+        array = str.split(" ");
+ 
+        ConnectObj.ip = array[0];
+        ConnectObj.port = array[1];
+        console.log("ConnectObj.ip " + ConnectObj.ip);
+        console.log("ConnectObj.port " + ConnectObj.port);
+        // This works, now make this into an event!
+        var port = ConnectObj.port || 3000;
+
+        var ip = ConnectObj.ip || '172.28.19.229';
+
+        // Create a new TCP connection -> need to know another laptops IP -> use lians
+
+        return;
+
+        
+    });
+
+    return;
+
+
+    // console.log("ConnectObj.port: " + ConnectObj.port);
+    // console.log("ConnectObj.ip: " + ConnectObj.ip);
+    
+};

@@ -27,6 +27,13 @@
         var final_message = $("<p />").text(msg);
         $("#history").append(final_message);
     });
+
+    socket.on("test message", function(data) {
+        // this Works
+        console.log(data);
+        var final_message = $("<p />").text(data);
+        $("#history").append(final_message);
+    }); 
 </script>
 </body>
 
