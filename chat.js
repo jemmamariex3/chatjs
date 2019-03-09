@@ -41,11 +41,10 @@ io.on("connection", function(socket){
     var close = isIPConnected(socket);
     // console.log(close);
     if (close) { // if true, disconnect new socket connection
-        socket.disconnect(close);
+        replaceExistingClient(socket);
     } else { // otherwise, add new socket to clientSockets array
         addNewClient(socket);
-    }
-
+    };
 
 
     socket.on("send message", function(sent_msg, callback){
@@ -206,7 +205,7 @@ function addNewClient(socket) {
         // Make sure not to store multiple clients with the same id
         var isMatch = false;
         for(i = 0; i < clientSockets.length; i++) {
-            if (socket.id == clientSockets[i].id) {
+            if (socket.id === clientSockets[i].id) {
                 isMatch = true;
                 // console.log("Socket already exists");
             }
@@ -216,18 +215,24 @@ function addNewClient(socket) {
             clientCount++;
         }
     }
+}
 
-    // console.log("Client count: " + clientCount + "----------------------------");
-    // for (i = 0; i < clientSockets.length; i++) {
-    //     console.log(clientSockets[i].id);
-    // }
-    // console.log(clientSockets);
+// Add existing client
+function replaceExistingClient(socket) {
+    console.log("[New client replacement]");
+    for(i = 0; i < clientSockets.length; i++)  {
+        console.log("socket: " + socket.handshake.address);
+        console.log("clientSockets [" + i + "]: " + clientSockets[i].handshake.address);
+        if (socket.handshake.address === clientSockets[i].handshake.address) {
+            clientSockets[i] = socket;
+        }
+    }
 }
 
 function isIPConnected(socket) {
     // Check if this sockets ip address is already exists in the clienSockets array
     for (i = 0; i < clientSockets.length; i++) {
-        if (socket.handshake.address == clientSockets[i].handshake.address) {
+        if (socket.handshake.address === clientSockets[i].handshake.address) {
             return true;
         }
     }
@@ -236,20 +241,6 @@ function isIPConnected(socket) {
 
 // 5 contribution: Display a numbered list of all the connections
 function displayConnections() {
-
-    // // Get IP and Port of new connection:
-    // var ip = socket.handshake.address;
-    // console.log(ip);
-    // Make sure not to get local ip from local comp client
-    // if (ip == '127.0.0.1') {
-    //     Obj.ip = clientIP;
-    // } else {
-    //     Obj.ip = ip;
-    // }
-    // var str = socket.handshake.headers.host;
-    // var port = str.split(":")[1];
-    // console.log(port);
-    // Obj.port = port;
     console.log("id:\tIP Address\t\t\t\tPort No.");
     for (i = 0; i < clientSockets.length; i++) {
         var ip = clientSockets[i].handshake.address;
