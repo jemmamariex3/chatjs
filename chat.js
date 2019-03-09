@@ -5,6 +5,7 @@ var io = require('socket.io')(app);
 var fs = require('fs');
 var network = require('network');
 
+
 // Create a clientsSockets array to hold each new client socket
 var clientSockets = [];
 var clientCount = 0;
@@ -69,7 +70,7 @@ console.log("Open browser at localhost:" +port);
 
 
 //If user inputs any value 1-8, case will determine what function or variable to call
-r = readline.createInterface(process.stdin, process.stdout);
+var r = readline.createInterface(process.stdin, process.stdout);
 r.on('line', function(line) {
     switch(line) {
         case '1':
@@ -95,8 +96,7 @@ r.on('line', function(line) {
         case '5':
             // console.log('5');
             // console.log("\n___________________________________________\n");
-            displayConnections()
-
+            displayConnections();
             break;
         case '6':
             console.log('6');
@@ -107,6 +107,7 @@ r.on('line', function(line) {
             // console.log('7');
             // // console.log("\n___________________________________________\n");
             privateMessage();
+            // sendMessageID();
             // console.log('\n');
             break;
         case '8':
@@ -261,6 +262,8 @@ function privateMessage() {
     var id = "";
     var msg = "";
     var fullmsg = "[Terminal] ";
+
+
     // This has been sending data to the console on the browser this whole time!
     // This works!!
     // clientSockets[0].emit("test message", "[Terminal]: Hey from privateMessage!");
