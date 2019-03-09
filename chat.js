@@ -69,12 +69,12 @@ io.on("connection", function(socket){
         io.sockets.emit("update messages", sent_msg);
         callback();
     });
-});
+}); // End io connection
 
 //network is a library that helps retrieve public IP
 network.get_private_ip(function(err, ip) {
     clientIP = err || ip; // err may be 'No active network interface found'.
-})
+}); // End network get private
 
 //user can set IP address using PORT=.
 //If no IP is indicated, the program will default to 3000
@@ -175,7 +175,7 @@ function response(req, res) {
             res.end(data);
         }
     );
-}
+} // End response()
 
 // Return current date
 function getCurrentDate(){
@@ -188,7 +188,7 @@ function getCurrentDate(){
     var second = (currentDate.getSeconds()<10 ? '0' : '') + currentDate.getSeconds();
 
     return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
-}
+} // End getCurrentDate()
 
 // Add new client to clientSockets array
 function addNewClient(socket) {
@@ -209,7 +209,7 @@ function addNewClient(socket) {
             clientCount++;
         }
     }
-}
+} // End addNewClient()
 
 //  This function replaces a socket in the clientSockets array with
 // the latest socket connection based on matching IP addresses.
@@ -222,7 +222,7 @@ function replaceExistingClient(socket) {
             clientSockets[i] = socket;
         }
     }
-}
+} // End replaceExistingClient()
 
 // This functions if a new socket connection IP address already exists
 // in another socket created before
@@ -235,7 +235,7 @@ function isIPConnected(socket) {
         }
     }
     return false;
-}
+} // End isIPConnected()
 
 // Part 5 of the assignment, this functiion display all current connected clients/hosts
 function displayConnections() {
@@ -250,34 +250,10 @@ function displayConnections() {
         var port = str.split(":")[1];
         console.log((i + 1) + "\t" + ip + "\t\t\t" + port);
     }
-}
+} // End displayConnections()
 
-// #7 Send designated message to
-function privateMessage() {
-    var id = "";
-    var msg = "";
-    var fullmsg = "[Terminal] ";
-
-    // This has been sending data to the console on the browser this whole time!
-    // This works!!
-    // clientSockets[0].emit("test message", "[Terminal]: Hey from privateMessage!");
-    r.question("Enter user id: ", function(data) {
-        id = data;
-        r. question("Enter message: ", function(data) {
-            msg = data;
-            // Checks to see if message is over 100 characters.
-            while (msg.length > 100) {
-                r. question("Enter message: ", function(data) {
-                    msg = data;
-                });
-            };
-            fullmsg += msg;
-            clientSockets[id].emit("test message", fullmsg);
-        });
-    });
-}
-
-// 7 update
+// Part 7: This is the new sendMessage function that asks for a specific id and message
+// to send to that specified user.  It also has input validation. I would consider this complete
 function sendMessageId() {
     var conn_id = 0;
     var message = '[Terminal] ';
@@ -321,8 +297,7 @@ function sendMessageId() {
         clientSockets[conn_id - 1].emit("test message", message);
         showOptions();
     }); // end inquirer.prompt
-
-}
+} // End sendMessage()
 
 // Test Function --> Keep this until project is finished.
 function itsPizzaTime() {
