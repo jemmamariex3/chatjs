@@ -26,6 +26,7 @@
   "homepage": "https://github.com/jemmamariex3/chatjs#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "inquirer": "^6.2.2",
     "network": "^0.4.1",
     "socket.io": "^2.2.0"
   }
