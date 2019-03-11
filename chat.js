@@ -110,9 +110,9 @@ function showOptions() {
         ])
         .then(answers => {
             var str = answers.options;
-            console.log(str);
+            // console.log(str);
             options = str.charAt(0);
-            console.log(options);
+            // console.log(options);
 
             if (options == 1) {
                 console.log("\n___________________________________________\n");
@@ -254,6 +254,7 @@ function displayConnections() {
 
 // Part 7: This is the new sendMessage function that asks for a specific id and message
 // to send to that specified user.  It also has input validation. I would consider this complete
+// TODO Make new condition -> where if there is no user, just return to main page.
 function sendMessageId() {
     var conn_id = 0;
     var message = '[Terminal] ';
