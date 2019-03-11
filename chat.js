@@ -145,9 +145,16 @@ function showOptions() {
                 console.log("\n___________________________________________\n");
                 showOptions();
             } else if (options == 7) {
-                // console.log("It's pizza time");
-                // itsPizzaTime();
-                sendMessageId()
+                // if no users, display message and return to showOptions()
+                if (clientSockets.length === 0) {
+                    console.log("\n___________________________________________\n");
+                    console.log("\nThere are no clients to send a message to.\n");
+                    console.log("\n___________________________________________\n");
+                    showOptions()
+                } else {
+                    sendMessageId();
+                }
+
             } else if (options == 8) {
                 console.log("Exiting Application");
                 process.exit(0);
@@ -258,6 +265,7 @@ function displayConnections() {
 function sendMessageId() {
     var conn_id = 0;
     var message = '[Terminal] ';
+
     // Show user list of users.
     console.log("\n___________________________________________\n");
     displayConnections();
