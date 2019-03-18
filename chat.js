@@ -16,33 +16,39 @@ const readline = require('readline');
 const question = "Select one of the possible options.\nCommand Manual (select options 1-8):\n1) Help\n2) MyIP\n3) MyPort\n4) Connect IP PORT\n5) List IP Peers\n6) Terminate IP\n7) Send IP Message\n8) Exit";
 const help =
     "\nHELP COMMAND" +
-    "\n1) Help - Display information about the available user interface options or command manual."+
-    "\n2) MyIP - Display the IP address of this process." +
-    "\n\tNote: The IP should not be your “Local” address (127.0.0.1). It should be the actual IP of the computer."+
-    "\n3) MyPort - Display the port on which this process is listening for incoming connections." +
-    "\n4) connect IP Port : This command establishes a new TCP connection to the specified IP address of the computer" +
-    "\nat the specified port no.\nAny attempt to connect to an invalid IP should be rejected and suitable error message" +
-    "\nshould be displayed. Success or failure in connections between two peers should be indicated by both the peers" +
-    "\nusing suitable messages. Self-connections and duplicate connections should be flagged with suitable error messages." +
-    "\n5) List IP Peers - Display a numbered list of all the connections this process is part of. This numbered list will " +
-    "\ninclude connections initiated by this process and connections initiated by other processes. The output should display" +
-    "\nthe IP address and the listening port of all the peers the process is connected to." +"\n"+
-    "\n6) Terminate IP - This command will terminate the connection listed under the specified number when LIST is used to" +
-    "\ndisplay all connections. " +
-    "\n\tE.g., terminate 2. In this example, the connection with 192.168.21.21 should end. An error message is\n" +
-    "\n\t\tdisplayed if a valid connection does not exist as number 2. If a remote machine terminates one of your\n" +
-    "\n\t\tconnections, you should also display a message." +
-    "\n7) Send IP Message - (For example, send 3 Oh! This project is a piece of cake). This will send the message to the" +
-    "\nhost on the connection that is designated by the number 3 when command “list” is used. The message to be sent can be" +
-    "\nup-to 100 characters long, including blank spaces. On successfully executing the command, the sender should display" +
-    "\nmessage sent to IP on the screen. On receiving any message from the peer, the receiver should display the received" +
-    "\nmessage along with the sender information." +
-    "\n\t(Eg. If a process on 192.168.21.20 sends a message to a process on 192.168.21.21 then the output on 192.168.21.21" +
-    "\n\t\twhen receiving a message should display as shown:" +
-    "\n\tMessage received from 192.168.21.20" +
-    "\n\tSender’s Port: < The port no. of the sender >" +
-    "\n\tSender’s Port: < The port no. of the sender >"+
-    "\n8) Exit - Exits out of the Chat Application.";
+    "\n\n1) Help - Display information about the available user interface options or command manual."+
+    "\n\n2) MyIP - Display the IP address of this process." +
+    "\n     Note: The IP should not be your “Local” address (127.0.0.1). It should be the actual" +
+    "\n           IP of the computer."+
+    "\n\n3) MyPort - Display the port on which this process is listening for incoming connections." +
+    "\n\n4) Connect IP Port - This command establishes a new TCP connection to the specified IP" +
+    "\n   address of the computer at the specified port no.Any attempt to connect to an invalid IP" +
+    "\n   should be rejected and suitable error message should be displayed. Success or failure in" +
+    "\n   connections between two peers should be indicated by both the peers using suitable" +
+    "\n   messages. Self-connections and duplicate connections should be flagged with suitable" +
+    "\n   error messages." +
+    "\n\n5) List IP Peers - Display a numbered list of all the connections this process is part of." +
+    "\n   This numbered list will include connections initiated by this process and connections" +
+    "\n   initiated by other processes. The output should display the IP address and the listening" +
+    "\n   port of all the peers the process is connected to."+
+    "\n\n6) Terminate IP - This command will terminate the connection listed under the specified" +
+    "\n   number when LIST is used to display all connections. " +
+    "\n     E.g. Terminate 2. In this example, the connection with 192.168.21.21 should end. An" +
+    "\n          error message is displayed if a valid connection does not exist as number 2. If a" +
+    "\n          remote machine terminates one of your connections, you should also display a" +
+    "\n          message." +
+    "\n\n7) Send IP Message - (For example, send 3 Oh! This project is a piece of cake). This will" +
+    "\n   send the message to the host on the connection that is designated by the number 3 when" +
+    "\n   command “list” is used. The message to be sent can beup-to 100 characters long," +
+    "\n   including blank spaces. On successfully executing the command, the sender should display" +
+    "\n   message sent to IP on the screen. On receiving any message from the peer, the receiver" +
+    "\n   should display the received message along with the sender information." +
+    "\n     E.g. If a process on 192.168.21.20 sends a message to a process on 192.168.21.21 then" +
+    "\n           the output on 192.168.21.21 when receiving a message should display as shown:" +
+    "\n             Message received from 192.168.21.20" +
+    "\n             Sender’s Port: < The port no. of the sender >" +
+    "\n             Sender’s Port: < The port no. of the sender >"+
+    "\n\n8) Exit - Exits out of the Chat Application.";
 
 //TODO: connect IP PORT: establishes a new TCP connection to the specified <destination> at the specified < port no>
 //TODO: terminate <connection id.>: This command will terminate the connection listed under the specified number when LIST is used to display all connections
@@ -115,9 +121,9 @@ function showOptions() {
             // console.log(options);
 
             if (options == 1) {
-                console.log("\n___________________________________________\n");
+                console.log("\n___________________________________________________________________________________________\n");
                 console.log("\n" +help+"\n");
-                console.log("\n___________________________________________\n");
+                console.log("\n___________________________________________________________________________________________\n");
                 showOptions();
             } else if (options == 2) {
                 console.log("\n___________________________________________\n");
@@ -150,7 +156,7 @@ function showOptions() {
                     console.log("\n___________________________________________\n");
                     console.log("\nThere are no clients to send a message to.\n");
                     console.log("\n___________________________________________\n");
-                    showOptions()
+                    showOptions(); // return to options menu
                 } else {
                     sendMessageId();
                 }
@@ -246,7 +252,7 @@ function isIPConnected(socket) {
 
 // Part 5 of the assignment, this functiion display all current connected clients/hosts
 function displayConnections() {
-    console.log("id:\tIP Address\t\t\tPort No.");
+    console.log("id:\tIP Address\t\tPort No.");
     for (i = 0; i < clientSockets.length; i++) {
         var ip = clientSockets[i].handshake.address;
 
@@ -255,7 +261,7 @@ function displayConnections() {
         }
         var str = clientSockets[i].handshake.headers.host;
         var port = str.split(":")[1];
-        console.log((i + 1) + "\t" + ip + "\t\t\t" + port);
+        console.log((i + 1) + "\t" + ip + "\t\t" + port);
     }
 } // End displayConnections()
 

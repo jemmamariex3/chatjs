@@ -98,7 +98,7 @@ r.on('line', function(line) {
         case '5':
             // console.log('5');
             // console.log("\n___________________________________________\n");
-            displayConnections()
+            displayConnections();
             
             break;
         case '6':
@@ -109,6 +109,7 @@ r.on('line', function(line) {
         case '7':
             // console.log('7');
             // console.log("\n___________________________________________\n");
+            console.log("Enter user id: ");
             privateMessage();
             // console.log('\n');
             break;
@@ -187,7 +188,7 @@ function newConnection() {
 
         // Create a new TCP connection -> need to know another laptops IP -> use lians
 
-        return;
+        r.close()
 
         
     });
@@ -279,24 +280,16 @@ function displayConnections() {
 
 }
 
-// #8 Send designated message to 
+// #7 Send designated message to
 function privateMessage() {
     var id = 0;
     var msg = "";
     var fullmsg = "[Terminal] ";
-
-    // Remake with Standard input & output
-    process.stdout.write("Enter userd id: ");
-    process.stdout.write(" > ");
-
-    process.stdin.on('data', function(data) {
-        id = data;
-        console.log(id);
-
-
-    });
-
-
+    id = getId();
+    while (isNaN(id)) {
+        id = getId();
+    }
+    return;
     // This has been sending data to the console on the browser this whole time!
     // This works!!
     // clientSockets[0].emit("test message", "[Terminal]: Hey from privateMessage!");
@@ -333,3 +326,9 @@ function privateMessage() {
     //     });
     // });
 };
+
+function getId() {
+    r.question("Enter id number: ", function(data) {
+        return data;
+    });
+}
