@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8627e49e-0e70-430e-94f9-1c86293b282d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newChatDemo.js" beforeDir="false" afterPath="$PROJECT_DIR$/newChatDemo.js" afterDir="false" />
-    </list>
+    <list default="true" id="8627e49e-0e70-430e-94f9-1c86293b282d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -23,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="263" column="47" selection-start-line="263" selection-start-column="47" selection-end-line="263" selection-end-column="47" />
+            <state relative-caret-position="524">
+              <caret line="155" column="83" lean-forward="true" selection-start-line="155" selection-start-column="83" selection-end-line="155" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -55,6 +51,11 @@
         <entry key="$PROJECT_DIR$" value="replaceExistingClient" />
       </map>
     </option>
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="jemmamariex3" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="chatjs" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -135,6 +136,7 @@
       <workItem from="1552340818035" duration="1567000" />
       <workItem from="1552411136936" duration="5049000" />
       <workItem from="1552446857145" duration="927000" />
+      <workItem from="1552927044287" duration="1332000" />
     </task>
     <task id="LOCAL-00001" summary="added menu interface">
       <created>1551314568219</created>
@@ -196,7 +198,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38188000" />
+    <option name="totallyTimeSpent" value="39520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -275,8 +277,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="263" column="47" selection-start-line="263" selection-start-column="47" selection-end-line="263" selection-end-column="47" />
+        <state relative-caret-position="524">
+          <caret line="155" column="83" lean-forward="true" selection-start-line="155" selection-start-column="83" selection-end-line="155" selection-end-column="83" />
         </state>
       </provider>
     </entry>
