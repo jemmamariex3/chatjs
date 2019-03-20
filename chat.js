@@ -9,8 +9,10 @@ var network = require('network');
 // Create a clientsSockets array to hold each new client socket
 var clientSockets = [];
 var clientCount = 0;
-
-let clientIP;
+var i;
+var connectionArr = [];
+var clientID = 0;
+var user_id = [];
 
 const readline = require('readline');
 const question = "Select one of the possible options.\nCommand Manual (select options 1-8):\n1) Help\n2) MyIP\n3) MyPort\n4) Connect IP PORT\n5) List IP Peers\n6) Terminate IP\n7) Send IP Message\n8) Exit";
@@ -52,10 +54,6 @@ const help =
 
 //TODO: connect IP PORT: establishes a new TCP connection to the specified <destination> at the specified < port no>
 //TODO: terminate <connection id.>: This command will terminate the connection listed under the specified number when LIST is used to display all connections
-//The message to be sent can be up-to 100 characters long, including blank spaces.
-// On successfully executing the command, the sender should display “Message sent to <connection id>” on the screen.
-// On receiving any message from the peer, the receiver should display the received message along with the sender information.
-
 
 //Socket connection
 io.on("connection", function(socket){
@@ -121,42 +119,28 @@ function showOptions() {
             // console.log(options);
 
             if (options == 1) {
-                console.log("\n___________________________________________________________________________________________\n");
                 console.log("\n" +help+"\n");
-                console.log("\n___________________________________________________________________________________________\n");
                 showOptions();
             } else if (options == 2) {
-                console.log("\n___________________________________________\n");
                 console.log("\nClient IP Address: " +clientIP+ "\n");
-                console.log("\n___________________________________________\n");
                 showOptions();
             } else if (options == 3) {
-                console.log("\n___________________________________________\n");
                 console.log("\nListening for connection on port: " +port+ "\n");
-                console.log("\n___________________________________________\n");
                 showOptions();
             } else if (options == 4) { //TODO
-                console.log("\n___________________________________________\n");
                 console.log("In progress...");
-                console.log("\n___________________________________________\n");
                 showOptions();
             } else if (options == 5) {
-                console.log("\n___________________________________________\n");
                 displayConnections();
-                console.log("\n___________________________________________\n");
                 showOptions();
             } else if (options == 6) { //TODO
-                console.log("\n___________________________________________\n");
-                console.log("In progress...");
-                console.log("\n___________________________________________\n");
-                showOptions();
+                disconnectClient();
+                // showOptions();
             } else if (options == 7) {
                 // if no users, display message and return to showOptions()
                 if (clientSockets.length === 0) {
-                    console.log("\n___________________________________________\n");
                     console.log("\nThere are no clients to send a message to.\n");
-                    console.log("\n___________________________________________\n");
-                    showOptions(); // return to options menu
+                    showOptions();
                 } else {
                     sendMessageId();
                 }
@@ -165,7 +149,7 @@ function showOptions() {
                 console.log("Exiting Application");
                 process.exit(0);
             }
-        }); // end answers =>
+        }); // end answers
 } // end show options
 
 // Start of the application
@@ -205,6 +189,8 @@ function getCurrentDate(){
 
 // Add new client to clientSockets array
 function addNewClient(socket) {
+    //pushing each new client connection's id into an array of clientIDs -JT
+    user_id.push(socket.id);
     if (clientSockets.length < 1) {
         clientSockets.push(socket);
         clientCount++;
@@ -250,7 +236,7 @@ function isIPConnected(socket) {
     return false;
 } // End isIPConnected()
 
-// Part 5 of the assignment, this functiion display all current connected clients/hosts
+// Part 5 of the assignment, this function display all current connected clients/hosts
 function displayConnections() {
     console.log("id:\tIP Address\t\tPort No.");
     for (i = 0; i < clientSockets.length; i++) {
@@ -261,10 +247,67 @@ function displayConnections() {
         }
         var str = clientSockets[i].handshake.headers.host;
         var port = str.split(":")[1];
-        console.log((i + 1) + "\t" + ip + "\t\t" + port);
+
+        var result = (i + 1) + ") " + ip + ":" + port; //checks if the element already exists in the connectionArr array. if true - dont do anything, -JT
+        var bool = connectionArr.includes(result);
+        if(bool === false){
+            // if false - push new element. This is done b/c every time user checks the list of connections, the elements duplicate in the array due to the push
+            // when displayConnections() is called in command 6. -JT
+            connectionArr.push((i + 1) + ") " + ip + ":" + port);
+        }
+        console.log((i + 1) + "\t" + ip + "\t\t" + port)
     }
+    return connectionArr;
 } // End displayConnections()
 
+//Part 6: go through the list and see if key exists. When user selects option, that ip will be disconnected -JT
+// function displayClient() will return the connectionArr array in order to be used for the disconnectClient function -JT
+
+function disconnectClient(){
+inquirer.prompt([
+    {
+        type: 'list',
+        name: 'client',
+        message: 'Which would you like to disconnect?',
+        choices: displayConnections(),
+    }
+])
+    .then(answers => {
+        //checks the length of the string and outputs id number with correct splice. 'string' id number is converted to an int -JT
+        if(answers.client.length == 21){
+            clientID = user_id[parseInt(answers.client.slice(0, -20))-1];
+        }else{
+            clientID = user_id[parseInt(answers.client.slice(0, -19))-1];
+        }
+        console.log(user_id);
+        console.log("ID: "+clientID+" IP " +answers.client);
+
+        // example output: -JT
+        // ? Which would you like to disconnect? 1) 172.28.89.64:3000
+        //     [ 'ML7V9IU22g71NRt4AAAA',
+        //     '0KgCpB4qLFqtT80xAAAB',
+        //     'CktAlfIrEN7Gry5HAAAC' ]
+        // ID: ML7V9IU22g71NRt4AAAA IP1) 172.28.89.64:3000
+        // ? Which would you like to disconnect? 1) 172.28.89.64:3000
+        //     [ 'CNaYm6hScdklOr_vAAAA',
+        //       'RhVtuzgABcwWT-dxAAAB',
+        //       'WDKPE0_l9kH6ehSQAAAD' ]
+        // ID: WDKPE0_l9kH6ehSQAAAD IP 3) 172.28.57.131:3000
+
+        io.on("connection", function(socket){
+            socket.on('disconnect',function(){
+
+                socket.clients[clientID].onDisconnect();
+                io.emit('broadcast', clientID + ' has left the chat room');
+                console.log(clientID + ' has left the chat room');
+                console.log('check', socket.disconnected); //console.logs status of disconnected client. if successful - true, else-false
+            });
+        })
+        showOptions();
+        // TODO: use this knowledge to disconnect whatever choice the user makes
+        // TODO: might be able to use var str from command 5.
+    });
+}
 // Part 7: This is the new sendMessage function that asks for a specific id and message
 // to send to that specified user.  It also has input validation. I would consider this complete
 // TODO Make new condition -> where if there is no user, just return to main page.
