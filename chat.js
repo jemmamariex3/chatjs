@@ -320,7 +320,7 @@ inquirer.prompt([
         console.log("ID: "+clientID+" IP " +answers.client);
 
         // example output: -JT
-        // Todo: figure out why every client connection comes with 2 ids. there should only be 1 id for each (2 elements in client_id array)
+        // Todo: figure out why every client connection comes with 2 ids. for this example, there should only be 1 id for each connection (2 elements in client_id array)
         //     ? Which would you like to disconnect? 1) 192.168.0.5:3000
         // client_id array console.log: 06WYjshypvh1KtQQAAAA,oSauWgBhDP3SRPeeAAAB,oX_um20UZok3iquEAAAC,xS9splG_JpXpqi2cAAAD
         // ID: 06WYjshypvh1KtQQAAAA IP 1) 192.168.0.5:3000
@@ -329,7 +329,7 @@ inquirer.prompt([
         // client_id array console.log: 06WYjshypvh1KtQQAAAA,oSauWgBhDP3SRPeeAAAB,oX_um20UZok3iquEAAAC,xS9splG_JpXpqi2cAAAD
         // ID: oSauWgBhDP3SRPeeAAAB IP 2) 192.168.0.17:3000
 
-
+        // Todo: figure out where/how to disconnect client with its ip address
         // io.on("connection", function(socket){
         //     socket.on('disconnect',function(){
         //

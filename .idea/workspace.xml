@@ -26,14 +26,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="3232" />
-          <entry key="txt" value="168" />
+          <entry key="js" value="4096" />
+          <entry key="txt" value="272" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="3232" />
-          <entry key="PLAIN_TEXT" value="168" />
+          <entry key="JavaScript" value="4096" />
+          <entry key="PLAIN_TEXT" value="272" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -63,17 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-813">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="-401">
+              <caret line="322" column="138" selection-start-line="322" selection-start-column="138" selection-end-line="322" selection-end-column="138" />
             </state>
           </provider>
         </entry>
@@ -164,7 +155,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="193" />
+    <option name="x" value="84" />
     <option name="y" value="23" />
     <option name="width" value="1087" />
     <option name="height" value="777" />
@@ -174,20 +165,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="chatjs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatjs" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -233,7 +211,7 @@
       <workItem from="1552446857145" duration="927000" />
       <workItem from="1552927044287" duration="1332000" />
       <workItem from="1552970254984" duration="19681000" />
-      <workItem from="1553131637974" duration="6431000" />
+      <workItem from="1553131637974" duration="8351000" />
     </task>
     <task id="LOCAL-00001" summary="added menu interface">
       <created>1551314568219</created>
@@ -298,14 +276,29 @@
       <option name="project" value="LOCAL" />
       <updated>1553119395567</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="made some changes to part 6 to displayConnections() and disconnectClients()">
+      <created>1553138342982</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1553138342982</updated>
+    </task>
+    <task id="LOCAL-00011" summary="created initializeArr()">
+      <created>1553152342072</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1553152342072</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65632000" />
+    <option name="totallyTimeSpent" value="67552000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="193" y="23" width="1087" height="777" extended-state="0" />
+    <frame x="84" y="23" width="1087" height="777" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49927008" weight="0.21260683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -320,7 +313,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49874055" visible="true" weight="0.36058393" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49874055" weight="0.36058393" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50125945" side_tool="true" weight="0.3280098" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32891566" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -342,7 +335,9 @@
     <MESSAGE value="added Read Me to master" />
     <MESSAGE value="added newChatDemo file" />
     <MESSAGE value="made some changes for part 6. TODO: figure out how to use socket.id to dicsonnect clients from server and delete disconnected clients off of the list in part 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="made some changes for part 6. TODO: figure out how to use socket.id to dicsonnect clients from server and delete disconnected clients off of the list in part 5" />
+    <MESSAGE value="made some changes to part 6 to displayConnections() and disconnectClients()" />
+    <MESSAGE value="created initializeArr()" />
+    <option name="LAST_COMMIT_MESSAGE" value="created initializeArr()" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/css/style.css">
@@ -369,8 +364,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-813">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="-401">
+          <caret line="322" column="138" selection-start-line="322" selection-start-column="138" selection-end-line="322" selection-end-column="138" />
         </state>
       </provider>
     </entry>
