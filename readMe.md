@@ -51,7 +51,6 @@ PORT=<enter-port-num> node chat.js
 
 #### Edward
 - Researched and implemented client and server side environment with socket.io
-   - Used node.js and socket.io
 - Updated the readLine menu for user input - used inquiry.js
 - Created validation functions to make sure socket connections are not duplicated in the clientConnection array
     - (addNewClient(socket), replaceExistingClient(socket), isIPConnected(socket))
