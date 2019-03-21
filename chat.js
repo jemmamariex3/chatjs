@@ -76,14 +76,14 @@ io.on("connection", function(socket){
     });
 
 
-    socket.on('disconnect', function () {
-        console.log(socket.id);
+    // socket.on('disconnect', function () {
+    //     console.log(socket.id);
         // console.log('A user disconnected');
         // clientSockets[clientID].disconnect();
         // io.emit('broadcast', clientID + ' has left the chat room');
         // console.log(clientID + ' has left the chat room');
         // console.log('check', clientSockets[clientID].disconnected); //console.logs status of disconnected client. if successful - true, else-false
-    });
+    // });
 }); // End io connection
 
 //network is a library that helps retrieve public IP
@@ -260,13 +260,31 @@ function displayConnections() {
         var str = clientSockets[i].handshake.headers.host;
         var port = str.split(":")[1];
         console.log((i + 1) + "\t" + ip + "\t\t" + port)
+    } // End displayConnections()
+}
+
+//Part 6:
+// Goal: go through the list of connected clients. When user selects option, that ip will be disconnected
+// Todo: must broadcast that a user has been disconnected and also console.logged in the terminal
+// function initializeArr() will return the connectionArr array in order to be used for disconnectClient() as choices for the prompt
+// It will also initialize the socket ID array in order to disconnect/terminate user's choice of client -JT
+function initializeArr(){
+    for (i = 0; i < clientSockets.length; i++) {
+        var ip = clientSockets[i].handshake.address;
+
+        if (ip == '127.0.0.1') {
+            ip = clientIP;
+        }
+
+        var str = clientSockets[i].handshake.headers.host;
+        var port = str.split(":")[1];
 
         //checks if the element already exists in the client_id array. if true - dont do anything, -JT
         var socketID = clientSockets[i].id;
         var id_exists = client_id.includes(socketID);
         if(id_exists === false){
             // if false - push new element. This is done b/c every time user checks the list of connections, the elements duplicate in the array due to the push
-            // when displayConnections() is called in command 6. -JT
+            // when initializeArr() is called in command 6. -JT
             client_id.push(clientSockets[i].id);
         }
 
@@ -275,7 +293,7 @@ function displayConnections() {
         var bool = connectionArr.includes(result);
         if(bool === false){
             // if false - push new element. This is done b/c every time user checks the list of connections, the elements duplicate in the array due to the push
-            // when displayConnections() is called in command 6. -JT
+            // when initializeArr() is called in command 6. -JT
             connectionArr.push((i + 1) + ") " + ip + ":" + port);
         }
 
@@ -283,10 +301,7 @@ function displayConnections() {
         // console.log(client_id[i]);
     }
     return connectionArr;
-} // End displayConnections()
-
-//Part 6: go through the list and see if key exists. When user selects option, that ip will be disconnected
-// function displayConnections() will return the connectionArr array in order to be used for disconnectClient() as choices for the prompt -JT
+}
 
 function disconnectClient(){
 inquirer.prompt([
@@ -294,30 +309,26 @@ inquirer.prompt([
         type: 'list',
         name: 'client',
         message: 'Which would you like to disconnect?',
-        choices: displayConnections(),
+        choices: initializeArr(),
     }
 ])
     .then(answers => {
-        //checks the length of the string and outputs id number with correct splice. 'string' id number is converted to an int -JT
-        if(answers.client.length == 21){
-            clientID = client_id[parseInt(answers.client.slice(0, -20))-1];
-        }else{
-            clientID = client_id[parseInt(answers.client.slice(0, -19))-1];
-        }
-        // console.log("client_id array console.log: "+clientID);
-        // console.log("ID: "+clientID+" IP " +answers.client);
+        // substring takes the first character of the prompt choice and the 'string' id number is converted to an int and stores
+        // The int is used as an index to extract socket id from the client_id array -JT
+        clientID = client_id[parseInt(answers.client.substring(0,1))-1];
+        console.log("client_id array console.log: "+client_id);
+        console.log("ID: "+clientID+" IP " +answers.client);
 
         // example output: -JT
-        // ? Which would you like to disconnect? 1) 172.28.89.64:3000
-        //     [ 'ML7V9IU22g71NRt4AAAA',
-        //     '0KgCpB4qLFqtT80xAAAB',
-        //     'CktAlfIrEN7Gry5HAAAC' ]
-        // ID: ML7V9IU22g71NRt4AAAA IP1) 172.28.89.64:3000
-        // ? Which would you like to disconnect? 1) 172.28.89.64:3000
-        //     [ 'CNaYm6hScdklOr_vAAAA',
-        //       'RhVtuzgABcwWT-dxAAAB',
-        //       'WDKPE0_l9kH6ehSQAAAD' ]
-        // ID: WDKPE0_l9kH6ehSQAAAD IP 3) 172.28.57.131:3000
+        // Todo: figure out why every client connection comes with 2 ids. there should only be 1 id for each (2 elements in client_id array)
+        //     ? Which would you like to disconnect? 1) 192.168.0.5:3000
+        // client_id array console.log: 06WYjshypvh1KtQQAAAA,oSauWgBhDP3SRPeeAAAB,oX_um20UZok3iquEAAAC,xS9splG_JpXpqi2cAAAD
+        // ID: 06WYjshypvh1KtQQAAAA IP 1) 192.168.0.5:3000
+        //     ? Select one of the possible options (select options 1-8): 6) Terminate IP
+        //     ? Which would you like to disconnect? 2) 192.168.0.17:3000
+        // client_id array console.log: 06WYjshypvh1KtQQAAAA,oSauWgBhDP3SRPeeAAAB,oX_um20UZok3iquEAAAC,xS9splG_JpXpqi2cAAAD
+        // ID: oSauWgBhDP3SRPeeAAAB IP 2) 192.168.0.17:3000
+
 
         // io.on("connection", function(socket){
         //     socket.on('disconnect',function(){
