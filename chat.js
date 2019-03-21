@@ -4,6 +4,8 @@ var app = http.createServer(response);
 var io = require('socket.io')(app);
 var fs = require('fs');
 var network = require('network');
+const opn = require('opn'); // used to open url
+
 
 
 // Create a clientsSockets array to hold each new client socket
@@ -67,7 +69,11 @@ io.on("connection", function(socket){
         replaceExistingClient(socket);
     } else { // otherwise, add new socket to clientSockets array
         addNewClient(socket);
+
+        var msg = "[Connected to " + clientIP + ":" + port+"]";
+        io.sockets.emit("connection success", msg);
     };
+
 
 
     socket.on("send message", function(sent_msg, callback){
@@ -136,10 +142,7 @@ function showOptions() {
                 console.log("\n___________________________________________\n");
                 showOptions();
             } else if (options == 4) { //TODO
-                console.log("\n___________________________________________\n");
-                console.log("In progress...");
-                console.log("\n___________________________________________\n");
-                showOptions();
+                connectToPeer();
             } else if (options == 5) {
                 console.log("\n___________________________________________\n");
                 displayConnections();
@@ -220,6 +223,8 @@ function addNewClient(socket) {
         if (!isMatch) {
             clientSockets.push(socket);
             clientCount++;
+            var ip = socket.request.connection._peername.address;
+            console.log("Connection with "+ip+" successful");
         }
     }
 } // End addNewClient()
@@ -263,6 +268,47 @@ function displayConnections() {
         console.log((i + 1) + "\t" + ip + "\t\t" + port);
     }
 } // End displayConnections()
+
+// Part 4:
+function connectToPeer() {
+    var questions = [
+        {
+            type: 'input',
+            name: 'ip_address',
+            message: 'Enter IP Address:',
+            pageSize: 10,
+            validate: function(ip) {
+                var ipformat = /^\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}$/;
+                if(ip.match(ipformat)) {
+                    return true;
+                } else {
+                    return 'Invalid IP';
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'port',
+            message: 'Enter Port Number:',
+            pageSize: 10,
+            validate: function(port) {
+                if (port < 1 || port > 65535) {
+                    return 'Invalid Port Number';
+                }
+                return true;
+            }
+        }
+    ]; // end questions array
+
+    inquirer.prompt(questions).then(answers => {
+        opn('http://'+answers.ip_address+':'+answers.port);
+
+        showOptions();
+    }); // end inquirer.prompt
+
+
+}
 
 // Part 7: This is the new sendMessage function that asks for a specific id and message
 // to send to that specified user.  It also has input validation. I would consider this complete

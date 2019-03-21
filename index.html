@@ -36,6 +36,11 @@
         $("#history").append(final_message);
     });
 
+    socket.on("connection success", function(msg) {
+        var confirm_message = $("<p />").text(msg);
+        $("#history").append(confirm_message);
+    });
+
 
 </script>
 </body>
