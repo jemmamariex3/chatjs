@@ -14,6 +14,7 @@
 </form>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/chat.js"></script>
 <script type="text/javascript">
     var socket = io.connect();
     // var socket = io.connect({transports: ['websocket']});
@@ -36,6 +37,12 @@
         $("#history").append(final_message);
     });
 
+    socket.on("disconnect", function(data) {
+        // this Works
+        console.log(data);
+        var disconnection = $("<p />").text(data);
+        $("#history").append(disconnection);
+    });
 
 </script>
 </body>
