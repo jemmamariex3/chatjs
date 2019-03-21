@@ -39,14 +39,24 @@ PORT=<enter-port-num> node chat.js
 #### Jemma
 
 - Researched and implemented client and server side environment with socket.io
-   - Used node.js and socket.io
+   - Using Node HTTP Server and socket.io
+- Worked on the UI/UX of the browser Chat interface
 - Researched and implemented readLine for user input and menu prompts
 - Implemented the menu interface for terminal
-- Worked on commands #1-3, and 8
+- Retrieved public IP address using network.js
+- Figured out how to allow user imput for PORT initialization option
+- Set up command for the 'Help' option
+- Created disconnectClient() function to terminate selected IP address
 - Wrote up the Read Me file
 
 #### Edward
-
+- Researched and implemented client and server side environment with socket.io
+- Updated the readLine menu for user input - used inquiry.js
+- Created validation functions to make sure socket connections are not duplicated in the clientConnection array
+    - (addNewClient(socket), replaceExistingClient(socket), isIPConnected(socket))
+- Created the displayConnection function to output list of connected users
+- Assisted in research for the disconnectClient function
+- Created the function sendMessageId() in order to send individual messages to selected IP users
 
 ## Sources
 The following resources were used to help build and research for this project:
@@ -70,3 +80,9 @@ The following resources were used to help build and research for this project:
 [socket. handshake.address return ::ffff:127.0.0.1](https://github.com/socketio/socket.io/issues/3337)
 
 [Network Library](https://www.npmjs.com/package/network)
+
+[Using Socket.IO as a cross-browser WebSocket](https://subscription.packtpub.com/book/web_development/9781785880865/1/ch01lvl1sec12/using-socket-io-as-a-cross-browser-websocket)
+
+[Inquiry.js](https://www.npmjs.com/package/inquirer)
+
+[opn](https://www.npmjs.com/package/opn)

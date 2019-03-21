@@ -13,9 +13,15 @@
       <change afterPath="$PROJECT_DIR$/node_modules/opn/xdg-open" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat.js" afterDir="false" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+=======
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,30 +32,126 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1257722416">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="161" />
+          <entry key="js" value="4233" />
+          <entry key="txt" value="272" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="161" />
+          <entry key="JavaScript" value="4233" />
+          <entry key="PLAIN_TEXT" value="272" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="1" />
+          <entry key="json" value="3" />
+          <entry key="md" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="1" />
+          <entry key="JSON" value="3" />
+          <entry key="Markdown" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.create.new" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="ChatJs" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="328">
               <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+=======
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chat.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
               <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chat.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4965">
+              <caret line="331" column="35" lean-forward="true" selection-start-line="331" selection-start-column="35" selection-end-line="331" selection-end-column="35" />
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+<<<<<<< HEAD
+=======
+=======
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/chat.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="348">
+                  <caret line="260" column="9" selection-start-line="260" selection-start-column="9" selection-end-line="260" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="168">
+                  <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -59,12 +161,24 @@
       <find>clientIP</find>
       <find>nginx.conf</find>
       <find>localIP</find>
+      <find>i</find>
+      <find>(app</find>
+      <find>addNew</find>
+      <find>clientConnect</find>
+      <find>clientID</find>
+      <find>addNewClient</find>
+      <find>message</find>
+      <find>sent_msg</find>
     </findStrings>
     <replaceStrings>
       <replace>r</replace>
       <replace>\n\n</replace>
       <replace>localIP</replace>
       <replace>clientIP</replace>
+      <replace>clientID</replace>
+      <replace>i</replace>
+      <replace>client_id</replace>
+      <replace>id_exists</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -72,7 +186,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+<<<<<<< HEAD
         <entry key="$PROJECT_DIR$" value="master" />
+=======
+<<<<<<< HEAD
+        <entry key="$PROJECT_DIR$" value="master" />
+=======
+        <entry key="$PROJECT_DIR$" value="cleanedUp" />
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
       </map>
     </option>
   </component>
@@ -85,22 +207,53 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/css/style.css" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/readMe.md" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/newChatDemo.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+=======
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/readMe.md" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/newChatDemo.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client.js" />
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/chat.js" />
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1060" />
+    <option name="y" value="23" />
+    <option name="width" value="1323" />
+    <option name="height" value="1410" />
+=======
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="1440" />
     <option name="y" value="-566" />
     <option name="width" value="1680" />
     <option name="height" value="1050" />
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -165,8 +318,14 @@
       <workItem from="1552340818035" duration="1567000" />
       <workItem from="1552411136936" duration="5049000" />
       <workItem from="1552446857145" duration="927000" />
+<<<<<<< HEAD
+      <workItem from="1552927044287" duration="1332000" />
+      <workItem from="1552970254984" duration="19681000" />
+      <workItem from="1553131637974" duration="16729000" />
+=======
       <workItem from="1552962427274" duration="536000" />
       <workItem from="1553186027728" duration="7319000" />
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
     </task>
     <task id="LOCAL-00001" summary="added menu interface">
       <created>1551314568219</created>
@@ -224,18 +383,60 @@
       <option name="project" value="LOCAL" />
       <updated>1552014830220</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="made some changes for part 6. TODO: figure out how to use socket.id to dicsonnect clients from server and delete disconnected clients off of the list in part 5">
+      <created>1553119395567</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1553119395567</updated>
+    </task>
+    <task id="LOCAL-00010" summary="made some changes to part 6 to displayConnections() and disconnectClients()">
+      <created>1553138342982</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1553138342982</updated>
+    </task>
+    <task id="LOCAL-00011" summary="created initializeArr()">
+      <created>1553152342072</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1553152342072</updated>
+    </task>
+    <task id="LOCAL-00012" summary="created initializeArr()">
+      <created>1553153181760</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1553153181760</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="54457000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="75930000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1060" y="23" width="1323" height="1410" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49927008" visible="true" weight="0.21198156" />
+=======
+    <option name="totallyTimeSpent" value="46282000" />
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-566" width="1680" height="1050" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49927008" weight="0.13984329" />
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5007299" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329927" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -245,7 +446,15 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49874055" visible="true" weight="0.47717842" />
+=======
+<<<<<<< HEAD
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49874055" visible="true" weight="0.2837633" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49874055" weight="0.5466805" />
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50125945" side_tool="true" weight="0.3280098" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32891566" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -256,6 +465,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added menu interface" />
     <MESSAGE value="pushing changes to interface menu - trying to retrieve IP address using socket.io" />
@@ -263,7 +475,10 @@
     <MESSAGE value="started retrieving ip address but not the computer ip address" />
     <MESSAGE value="added Read Me to master" />
     <MESSAGE value="added newChatDemo file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added newChatDemo file" />
+    <MESSAGE value="made some changes for part 6. TODO: figure out how to use socket.id to dicsonnect clients from server and delete disconnected clients off of the list in part 5" />
+    <MESSAGE value="made some changes to part 6 to displayConnections() and disconnectClients()" />
+    <MESSAGE value="created initializeArr()" />
+    <option name="LAST_COMMIT_MESSAGE" value="created initializeArr()" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/css/style.css">
@@ -273,6 +488,43 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/chatDemo.js" />
+    <entry file="file://$PROJECT_DIR$/newChatDemo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6304">
+          <caret line="281" lean-forward="true" selection-start-line="281" selection-end-line="281" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readMe.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="435">
+            <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4965">
+          <caret line="331" column="35" lean-forward="true" selection-start-line="331" selection-start-column="35" selection-end-line="331" selection-end-column="35" />
+=======
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
     <entry file="file://$PROJECT_DIR$/chatDemo.js" />
     <entry file="file://$PROJECT_DIR$/newChatDemo.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -302,15 +554,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="328">
           <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+=======
+        <state relative-caret-position="168">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="184">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="570">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+=======
+        <state relative-caret-position="348">
+          <caret line="260" column="9" selection-start-line="260" selection-start-column="9" selection-end-line="260" selection-end-column="9" />
+>>>>>>> f3c5e1516a54b7f0cce9eaaf6fe96dfbf469b31c
+>>>>>>> b8e4e651ff3fe13c44914d1db3738760331ff8ab
         </state>
       </provider>
     </entry>
