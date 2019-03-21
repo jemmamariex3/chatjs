@@ -14,14 +14,14 @@ form {
 }
 
 form input[type='text'] {
-    border: 2px solid #eb5424;
+    border: 2px solid #7bc1ad;
     border-radius: 5px;
     padding: 5px;
     width: 75%;
 }
 
 form input[type='submit'] {
-    background: #eb5424;
+    background: #7bc1ad;
     border: none;
     border-radius: 5px;
     color: #FFF;
@@ -33,6 +33,11 @@ form input[type='submit'] {
 
 #history {
     background: #FFF;
-    border: 2px solid #eb5424;
+    border: 2px solid #7bc1ad;
     height: 550px;
+    overflow-y:scroll;
+}
+.title{
+    text-align: center;
+    color: #7bc1ad;
 }

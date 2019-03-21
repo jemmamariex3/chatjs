@@ -7,6 +7,7 @@
 </head>
 
 <body>
+<h1 class="title">Comp 429: Real-Time Chat App</h1>
 <div id="history"></div>
 <form id="chat">
     <input type="text" id="msg_text" name="msg_text" />
@@ -16,6 +17,11 @@
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="/chat.js"></script>
 <script type="text/javascript">
+    window.setInterval(function() {
+        var elem = document.getElementById('history');
+        elem.scrollTop = elem.scrollHeight;
+    }, 500);
+
     var socket = io.connect();
     // var socket = io.connect({transports: ['websocket']});
     $("form#chat").submit(function(e) {
