@@ -254,13 +254,12 @@ function isIPConnected(socket) {
 function displayConnections() {
     console.log("id:\tIP Address\t\tPort No.");
     for (i = 0; i < clientSockets.length; i++) {
-        var ip = clientSockets[i].handshake.address;
+        var ip = clientSockets[i].request.connection._peername.address;
 
         if (ip == '127.0.0.1') {
             ip = clientIP;
         }
-        var str = clientSockets[i].handshake.headers.host;
-        var port = str.split(":")[1];
+        var port = clientSockets[i].request.connection._peername.port;
         console.log((i + 1) + "\t" + ip + "\t\t" + port);
     }
 } // End displayConnections()
