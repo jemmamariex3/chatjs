@@ -8,11 +8,13 @@ var network = require('network');
 
 // Create a clientsSockets array to hold each new client socket
 var clientSockets = [];
+// array that holds new client socket id
+var client_id = [];
+// array that holds the IP choices to terminate part 6.
+var connectionArr = [];
 var clientCount = 0;
 var i;
-var connectionArr = [];
 var clientID = 0;
-var user_id = [];
 
 const readline = require('readline');
 const question = "Select one of the possible options.\nCommand Manual (select options 1-8):\n1) Help\n2) MyIP\n3) MyPort\n4) Connect IP PORT\n5) List IP Peers\n6) Terminate IP\n7) Send IP Message\n8) Exit";
@@ -57,7 +59,6 @@ const help =
 
 //Socket connection
 io.on("connection", function(socket){
-
     // Check if this ip address is already connected
     var close = isIPConnected(socket);
     // console.log(close);
@@ -72,6 +73,16 @@ io.on("connection", function(socket){
         sent_msg = "[ " + getCurrentDate() + " ]: " + sent_msg;
         io.sockets.emit("update messages", sent_msg);
         callback();
+    });
+
+
+    socket.on('disconnect', function () {
+        console.log(socket.id);
+        // console.log('A user disconnected');
+        // clientSockets[clientID].disconnect();
+        // io.emit('broadcast', clientID + ' has left the chat room');
+        // console.log(clientID + ' has left the chat room');
+        // console.log('check', clientSockets[clientID].disconnected); //console.logs status of disconnected client. if successful - true, else-false
     });
 }); // End io connection
 
@@ -190,7 +201,7 @@ function getCurrentDate(){
 // Add new client to clientSockets array
 function addNewClient(socket) {
     //pushing each new client connection's id into an array of clientIDs -JT
-    user_id.push(socket.id);
+    client_id.push(socket.id);
     if (clientSockets.length < 1) {
         clientSockets.push(socket);
         clientCount++;
@@ -245,23 +256,37 @@ function displayConnections() {
         if (ip == '127.0.0.1') {
             ip = clientIP;
         }
+
         var str = clientSockets[i].handshake.headers.host;
         var port = str.split(":")[1];
+        console.log((i + 1) + "\t" + ip + "\t\t" + port)
 
-        var result = (i + 1) + ") " + ip + ":" + port; //checks if the element already exists in the connectionArr array. if true - dont do anything, -JT
+        //checks if the element already exists in the client_id array. if true - dont do anything, -JT
+        var socketID = clientSockets[i].id;
+        var id_exists = client_id.includes(socketID);
+        if(id_exists === false){
+            // if false - push new element. This is done b/c every time user checks the list of connections, the elements duplicate in the array due to the push
+            // when displayConnections() is called in command 6. -JT
+            client_id.push(clientSockets[i].id);
+        }
+
+        //checks if the element already exists in the connectionArr array. if true - dont do anything, -JT
+        var result = (i + 1) + ") " + ip + ":" + port;
         var bool = connectionArr.includes(result);
         if(bool === false){
             // if false - push new element. This is done b/c every time user checks the list of connections, the elements duplicate in the array due to the push
             // when displayConnections() is called in command 6. -JT
             connectionArr.push((i + 1) + ") " + ip + ":" + port);
         }
-        console.log((i + 1) + "\t" + ip + "\t\t" + port)
+
+        // console.log(clientSockets[i].id);
+        // console.log(client_id[i]);
     }
     return connectionArr;
 } // End displayConnections()
 
-//Part 6: go through the list and see if key exists. When user selects option, that ip will be disconnected -JT
-// function displayClient() will return the connectionArr array in order to be used for the disconnectClient function -JT
+//Part 6: go through the list and see if key exists. When user selects option, that ip will be disconnected
+// function displayConnections() will return the connectionArr array in order to be used for disconnectClient() as choices for the prompt -JT
 
 function disconnectClient(){
 inquirer.prompt([
@@ -275,12 +300,12 @@ inquirer.prompt([
     .then(answers => {
         //checks the length of the string and outputs id number with correct splice. 'string' id number is converted to an int -JT
         if(answers.client.length == 21){
-            clientID = user_id[parseInt(answers.client.slice(0, -20))-1];
+            clientID = client_id[parseInt(answers.client.slice(0, -20))-1];
         }else{
-            clientID = user_id[parseInt(answers.client.slice(0, -19))-1];
+            clientID = client_id[parseInt(answers.client.slice(0, -19))-1];
         }
-        console.log(user_id);
-        console.log("ID: "+clientID+" IP " +answers.client);
+        // console.log("client_id array console.log: "+clientID);
+        // console.log("ID: "+clientID+" IP " +answers.client);
 
         // example output: -JT
         // ? Which would you like to disconnect? 1) 172.28.89.64:3000
@@ -294,18 +319,16 @@ inquirer.prompt([
         //       'WDKPE0_l9kH6ehSQAAAD' ]
         // ID: WDKPE0_l9kH6ehSQAAAD IP 3) 172.28.57.131:3000
 
-        io.on("connection", function(socket){
-            socket.on('disconnect',function(){
-
-                socket.clients[clientID].onDisconnect();
-                io.emit('broadcast', clientID + ' has left the chat room');
-                console.log(clientID + ' has left the chat room');
-                console.log('check', socket.disconnected); //console.logs status of disconnected client. if successful - true, else-false
-            });
-        })
+        // io.on("connection", function(socket){
+        //     socket.on('disconnect',function(){
+        //
+        //         io.sockets.connected[clientID].disconnect();
+        //         io.emit('broadcast', clientID + ' has left the chat room');
+        //         console.log(clientID + ' has left the chat room');
+        //         console.log('check', clientSockets[clientID].disconnected); //console.logs status of disconnected client. if successful - true, else-false
+        //     });
+        // })
         showOptions();
-        // TODO: use this knowledge to disconnect whatever choice the user makes
-        // TODO: might be able to use var str from command 5.
     });
 }
 // Part 7: This is the new sendMessage function that asks for a specific id and message

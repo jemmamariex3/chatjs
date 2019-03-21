@@ -4,7 +4,6 @@
     <list default="true" id="8627e49e-0e70-430e-94f9-1c86293b282d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,18 +18,22 @@
     <session id="1257722416">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="2724" />
+          <entry key="js" value="3232" />
+          <entry key="txt" value="168" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="2724" />
+          <entry key="JavaScript" value="3232" />
+          <entry key="PLAIN_TEXT" value="168" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -60,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="293" column="41" lean-forward="true" selection-start-line="293" selection-start-column="41" selection-end-line="293" selection-end-column="41" />
+            <state relative-caret-position="-813">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -79,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/readMe.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="20">
+              <first_editor relative-caret-position="435">
                 <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
               </first_editor>
               <second_editor />
@@ -98,10 +101,13 @@
       <find>nginx.conf</find>
       <find>localIP</find>
       <find>i</find>
-      <find>clientID</find>
       <find>(app</find>
       <find>addNew</find>
       <find>clientConnect</find>
+      <find>clientID</find>
+      <find>addNewClient</find>
+      <find>message</find>
+      <find>sent_msg</find>
     </findStrings>
     <replaceStrings>
       <replace>r</replace>
@@ -110,6 +116,8 @@
       <replace>clientIP</replace>
       <replace>clientID</replace>
       <replace>i</replace>
+      <replace>client_id</replace>
+      <replace>id_exists</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -156,7 +164,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1305" />
+    <option name="x" value="193" />
     <option name="y" value="23" />
     <option name="width" value="1087" />
     <option name="height" value="777" />
@@ -224,7 +232,8 @@
       <workItem from="1552411136936" duration="5049000" />
       <workItem from="1552446857145" duration="927000" />
       <workItem from="1552927044287" duration="1332000" />
-      <workItem from="1552970254984" duration="19610000" />
+      <workItem from="1552970254984" duration="19681000" />
+      <workItem from="1553131637974" duration="6431000" />
     </task>
     <task id="LOCAL-00001" summary="added menu interface">
       <created>1551314568219</created>
@@ -282,20 +291,26 @@
       <option name="project" value="LOCAL" />
       <updated>1552014830220</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="made some changes for part 6. TODO: figure out how to use socket.id to dicsonnect clients from server and delete disconnected clients off of the list in part 5">
+      <created>1553119395567</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1553119395567</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59130000" />
+    <option name="totallyTimeSpent" value="65632000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1305" y="23" width="1087" height="777" extended-state="0" />
-    <editor active="true" />
+    <frame x="193" y="23" width="1087" height="777" extended-state="0" />
     <layout>
-      <window_info id="npm" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49927008" weight="0.21260683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5007299" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329927" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -305,7 +320,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49874055" visible="true" weight="0.3459854" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49874055" visible="true" weight="0.36058393" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50125945" side_tool="true" weight="0.3280098" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32891566" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -326,7 +341,8 @@
     <MESSAGE value="started retrieving ip address but not the computer ip address" />
     <MESSAGE value="added Read Me to master" />
     <MESSAGE value="added newChatDemo file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added newChatDemo file" />
+    <MESSAGE value="made some changes for part 6. TODO: figure out how to use socket.id to dicsonnect clients from server and delete disconnected clients off of the list in part 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="made some changes for part 6. TODO: figure out how to use socket.id to dicsonnect clients from server and delete disconnected clients off of the list in part 5" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/css/style.css">
@@ -351,13 +367,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readMe.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="20">
-            <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-813">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -368,10 +381,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="293" column="41" lean-forward="true" selection-start-line="293" selection-start-column="41" selection-end-line="293" selection-end-column="41" />
+    <entry file="file://$PROJECT_DIR$/readMe.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="435">
+            <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
