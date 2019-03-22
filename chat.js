@@ -58,6 +58,8 @@ io.on("connection", function(socket){
         replaceExistingClient(socket);
     } else { // otherwise, add new socket to clientSockets array
         addNewClient(socket);
+
+        var msg = "new user connected to " + clientIP + ":" + port+"";
         io.sockets.emit("connection success", msg);
     };
 
