@@ -43,13 +43,17 @@
         $("#history").append(final_message);
     });
 
+    socket.on("connection success", function(msg) {
+        var confirm_message = $("<p />").text(msg);
+        $("#history").append(confirm_message);
+    });
+
     socket.on("disconnect", function(data) {
         // this Works
         console.log(data);
         var disconnection = $("<p />").text(data);
         $("#history").append(disconnection);
     });
-
 </script>
 </body>
 
