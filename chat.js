@@ -6,8 +6,6 @@ var fs = require('fs');
 var network = require('network');
 const opn = require('opn'); // used to open url
 
-
-
 // Create a clientsSockets array to hold each new client socket
 var clientSockets = [];
 var clientCount = 0;
@@ -63,9 +61,10 @@ io.on("connection", function(socket){
     } else { // otherwise, add new socket to clientSockets array
         addNewClient(socket);
 
-        var msg = "[Connected to " + clientIP + ":" + port+"]";
+        var msg = "new user connected to " + clientIP + ":" + port+"";
         io.sockets.emit("connection success", msg);
     };
+
     // after validating clients, terminal will print out a new conenction and how many there are.
     console.log('\nThe socket connected. There are ' + clientSockets.length + ' connected sockets');
     socket.on("send message", function(sent_msg, callback){
@@ -140,12 +139,12 @@ function showOptions() {
             } else if (options == 3) {
                 console.log("\nListening for connection on port: " +port+ "\n");
                 showOptions();
-            } else if (options == 4) { //TODO
+            } else if (options == 4) {
                 connectToPeer();
             } else if (options == 5) {
                 displayConnections();
                 showOptions();
-            } else if (options == 6) { //TODO
+            } else if (options == 6) {
                 disconnectClient();
                 // showOptions();
             } else if (options == 7) {
@@ -217,8 +216,6 @@ function addNewClient(socket) {
         if (!isMatch) {
             clientSockets.push(socket);
             clientCount++;
-            var ip = socket.request.connection._peername.address;
-            console.log("Connection with "+ip+" successful");
         }
     }
 } // End addNewClient()
@@ -248,6 +245,7 @@ function isIPConnected(socket) {
     }
     return false;
 } // End isIPConnected()
+
 // Part 4:
 function connectToPeer() {
     var questions = [
@@ -256,9 +254,9 @@ function connectToPeer() {
             name: 'ip_address',
             message: 'Enter IP Address:',
             pageSize: 10,
-            validate: function(ip) {
+            validate: function (ip) {
                 var ipformat = /^\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}$/;
-                if(ip.match(ipformat)) {
+                if (ip.match(ipformat)) {
                     return true;
                 } else {
                     return 'Invalid IP';
@@ -271,17 +269,15 @@ function connectToPeer() {
             name: 'port',
             message: 'Enter Port Number:',
             pageSize: 10,
-            validate: function(port) {
-                if (port < 1 || port > 65535) {
+            validate: function (port) {
+                if (port < 1 || port > 65535 || isNaN(port)) {
                     return 'Invalid Port Number';
                 }
                 return true;
             }
-        }
-    ]; // end questions array
-
+        }]; // End of questions array
     inquirer.prompt(questions).then(answers => {
-        opn('http://'+answers.ip_address+':'+answers.port);
+        opn('http://' + answers.ip_address + ':' + answers.port);
 
         showOptions();
     }); // end inquirer.prompt
@@ -289,7 +285,7 @@ function connectToPeer() {
 
 // Part 5 of the assignment, this function display all current connected clients/hosts
 function displayConnections() {
-    console.log("id:\tIP Address\t\tPort No.");
+    console.log("\nid:\tIP Address\t\tPort No.");
     for (i = 0; i < clientSockets.length; i++) {
         var ip = clientSockets[i].request.connection._peername.address;
 
@@ -299,6 +295,7 @@ function displayConnections() {
         var port = clientSockets[i].request.connection._peername.port;
         console.log((i + 1) + "\t" + ip + "\t\t" + port);
     }
+    console.log("\n");
 } // End displayConnections()
 
 //Part 6:
@@ -329,7 +326,7 @@ function disconnectClient(){
         clientSockets[socket_id - 1].disconnect();
         showOptions();
     }); // end inquirer.prompt
-};
+}
 // Part 7: This is the new sendMessage function that asks for a specific id and message
 // to send to that specified user.  It also has input validation. I would consider this complete
 // TODO Make new condition -> where if there is no user, just return to main page.
@@ -338,9 +335,7 @@ function sendMessageId() {
     var message = '[Terminal] ';
 
     // Show user list of users.
-    console.log("\n___________________________________________\n");
     displayConnections();
-    console.log("\n___________________________________________\n");
     var questions = [
         {
             type: 'input',
@@ -378,39 +373,3 @@ function sendMessageId() {
         showOptions();
     }); // end inquirer.prompt
 } // End sendMessage()
-
-// Test Function --> Keep this until project is finished.
-function itsPizzaTime() {
-    inquirer
-        .prompt([
-            {
-                type: 'list',
-                name: 'theme',
-                message: 'What do you want to do?',
-                choices: [
-                    'Order a pizza',
-                    'Make a reservation',
-                    new inquirer.Separator(),
-                    'Ask for opening hours',
-                    {
-                        name: 'Contact support',
-                        disabled: 'Unavailable at this time'
-                    },
-                    'Talk to the receptionist'
-                ]
-            },
-            {
-                type: 'list',
-                name: 'size',
-                message: 'What size do you need?',
-                choices: ['Jumbo', 'Large', 'Standard', 'Medium', 'Small', 'Micro'],
-                filter: function(val) {
-                    return val.toLowerCase();
-                }
-            }
-        ])
-        .then(answers => {
-            console.log(JSON.stringify(answers, null, '  '));
-            showOptions();
-        });
-}
