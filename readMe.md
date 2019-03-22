@@ -34,6 +34,11 @@ Run the following command to get started
 PORT=<enter-port-num> node chat.js
 ```
 
+Or PORT can simply be run on 3000 by default: 
+
+``` bash
+node chat.js
+```
 ## Contributions
 
 #### Jemma

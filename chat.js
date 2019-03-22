@@ -49,8 +49,6 @@ const help =
     "\n             Sender’s Port: < The port no. of the sender >"+
     "\n\n8) Exit - Exits out of the Chat Application.";
 
-//TODO: connect IP PORT: establishes a new TCP connection to the specified <destination> at the specified < port no>
-
 //Socket connection
 io.on("connection", function(socket){
     // Check if this ip address is already connected
@@ -81,9 +79,8 @@ io.on("connection", function(socket){
                 clientSockets .splice(i, 1);
             }
         }
-        socket.emit('User is disconnected.');
-        console.log('\nThe socket disconnected. There are ' + clientSockets.length + ' connected sockets');}
-    );
+
+    });
 });
 
 
